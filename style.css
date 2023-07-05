@@ -1,0 +1,172 @@
+html {
+    cursor: none;
+    overscroll-behavior-x: none;
+    overscroll-behavior-y: none;
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+/* html classes for customizing styles */
+
+.is-hovering-samurai {
+    .cursor .small {
+        display: none;
+    }
+
+    .cursor .big {
+        transform: scale(1);
+        transition-timing-function: cubic-bezier(0.5, 2.25, 1, 1.1);
+        transition-duration: .4s;
+    }
+}
+
+.is-hovering-btn {
+    cursor: pointer;
+
+    .cursor .small {
+        top: -14px;
+        left: -18px;
+        width: 24px;
+        height: 16px;
+        background-color: transparent;
+        border: 6px solid #fff;
+        border-radius: 24px / 18px;
+    }
+}
+
+.is-disabling-scroll {
+    .cursor .small {
+        display: block;
+    }
+
+    .cursor .big {
+        transform: scale(0);
+        transition: transform .2s ease-in;
+    }
+}
+
+body {}
+
+.samurais {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100%;
+    z-index: 1;
+}
+
+.samurai-area-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.samurai-area {
+    position: absolute;
+    top: calc(50% - 15vh);
+    left: calc(50% - 15vh);
+    height: 30vh;
+    width: 30vh;
+    pointer-events: auto;
+}
+
+.sections {
+    height: 100vh;
+    position: relative;
+	overflow: hidden;
+	background: #6F53DF;
+}
+
+.section {
+    height: 100vh;
+    position: relative;
+    overflow: hidden;
+}
+
+.scroll-down-container {
+    display: flex;
+    position: fixed;
+    left: 0;
+    width: 100%;
+    bottom: 10%;
+    align-items: center;
+    justify-content: center;
+    pointer-events: none;
+    z-index: 1;
+
+    & .scroll-down {
+        background-color: #e336e9;
+        color: #fff;
+        font-size: 22px;
+        padding: 10px 20px;
+        border-radius: 25px;
+        pointer-events: auto;
+    }
+}
+
+.cursors {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    pointer-events: none;
+    z-index: 1;
+
+    @media (min-width: 655px) {
+        display: block;
+    }
+}
+
+.cursor {
+    position: absolute;
+    will-change: transform;
+    transform: translate(-25px,-25px);
+
+    & .small {
+        position: absolute;
+        top: -9px;
+        left: -9px;
+        width: 6px;
+        height: 6px;
+        background-color: #fff;
+        border: 6px solid #fff;
+        border-radius: 50%;
+        transition-duration: .2s;
+    }
+
+    & .big {
+        position: absolute;
+        top: -38px;
+        left: -38px;
+        width: 76px;
+        height: 76px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        line-height: 0;
+        background-color: #fff279;
+
+        transform: scale(0);
+        transition: transform .2s ease-in;
+
+        & > img {
+            width: 55px;
+        }
+    }
+}
